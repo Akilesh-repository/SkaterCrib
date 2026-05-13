@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkatersCrib - Pricing & Plans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === RESET & CORE === */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            transition: background-color 0.3s, color 0.3s;
+            overflow-x: hidden;
+        }
+
+        /* === THEME VARIABLES === */
+        :root {
+            --bg-color: #F8FAFC;
+            --bg-secondary: #F1F5F9; 
+            --bg-card: #FFFFFF; 
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --accent-color: #f97316; 
+            --accent-dark: #c2410c;  
+            --border-color: #E2E8F0;
+            --nav-bg: rgba(255, 255, 255, 0.85);
+            --drawer-bg: rgba(255, 255, 255, 0.98);
+            --drawer-text: #0F172A;
+            --menu-hover-bg: rgba(249, 115, 22, 0.1); 
+        }
+
+        /* DARK MODE */
+        body.dark-mode {
+            --bg-color: #0B1120; 
+            --bg-secondary: #1E293B; 
+            --bg-card: #1E293B; 
+            --text-main: #F8FAFC; 
+            --text-muted: #94A3B8;
+            --accent-color: #fb923c; 
+            --accent-dark: #f97316; 
+            --border-color: #334155;
+            --nav-bg: rgba(11, 17, 32, 0.85);
+            --drawer-bg: rgba(11, 17, 32, 0.98);
+            --drawer-text: #F8FAFC;
+            --menu-hover-bg: rgba(251, 146, 60, 0.15); 
+        }
+
+        /* RTL SUPPORT */
+        [dir="rtl"] { text-align: right; }
+        [dir="rtl"] .ml-auto { margin-right: auto; margin-left: 0; }
+        [dir="rtl"] .mr-auto { margin-left: auto; margin-right: 0; }
+
+        @keyframes subtleZoom {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        .animate-zoom { animation: subtleZoom 20s infinite alternate ease-in-out; }
+
+        /* === NEO-BRUTALIST UTILITIES === */
+        .neo-border { border: 3px solid var(--text-main); }
+        .neo-shadow { box-shadow: 6px 6px 0px var(--text-main); transition: all 0.3s ease; }
+        .neo-shadow:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0px var(--text-main); }
+        
+        body.dark-mode .neo-border { border-color: var(--accent-color); }
+        body.dark-mode .neo-shadow { box-shadow: 6px 6px 0px var(--accent-color); }
+        body.dark-mode .neo-shadow:hover { box-shadow: 8px 8px 0px var(--accent-color); }
+
+        /* === NAVBAR DESIGN === */
+        .navbar { 
+            position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+            width: calc(100% - 32px); max-width: 1440px; z-index: 1000;
+            background: var(--nav-bg); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid var(--text-main);
+            border-radius: 20px;
+            box-shadow: 4px 4px 0px var(--text-main);
+            padding: 10px 24px; transition: all 0.3s ease;
+        }
+
+        body.dark-mode .navbar {
+            border-color: var(--accent-color);
+            box-shadow: 4px 4px 0px var(--accent-color);
+        }
+        
+        /* === NAV LINK HOVER EFFECT === */
+        .nav-link { 
+            padding: 10px 12px; margin: 0 4px; 
+            color: var(--text-main); text-decoration: none; font-size: 13px; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 0.5px; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; 
+            position: relative;
+            border-radius: 8px;
+        }
+        
+        .nav-link:hover, .nav-link.active { 
+            background: var(--text-main); 
+            color: var(--bg-card); 
+        }
+
+        body.dark-mode .nav-link:hover, body.dark-mode .nav-link.active {
+            background: var(--accent-color);
+            color: #fff;
+        }
+        
+        /* Dropdown */
+        .dropdown { position: relative; display: flex; align-items: center; height: 100%; }
+        .dropdown-menu { position: absolute; top: 100%; left: 0; transform: translateY(15px); margin-top: 15px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 100; }
+        .dropdown-inner { 
+            background: var(--bg-card); border: 2px solid var(--text-main); 
+            border-radius: 12px; min-width: 220px; box-shadow: 4px 4px 0px var(--text-main); padding: 8px; display: flex; flex-direction: column; gap: 4px; 
+        }
+        body.dark-mode .dropdown-inner {
+            border-color: var(--accent-color);
+            box-shadow: 4px 4px 0px var(--accent-color);
+        }
+        .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        
+        .dropdown-item { display: block; padding: 12px 16px; border-radius: 6px; color: var(--text-main); text-decoration: none; font-size: 13px; font-weight: 600; transition: all 0.2s; text-align: left; white-space: nowrap; }
+        .dropdown-item:hover { background: var(--menu-hover-bg); color: var(--accent-color); padding-left: 20px; }
+        [dir="rtl"] .dropdown-item:hover { padding-left: 16px; padding-right: 20px; }
+
+        /* PILL TOGGLE */
+        .theme-toggle-pill { width: 52px; height: 28px; background: var(--bg-secondary); border-radius: 30px; position: relative; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 6px; border: 2px solid var(--text-main); }
+        body.dark-mode .theme-toggle-pill { border-color: var(--accent-color); }
+        .theme-toggle-pill i { font-size: 10px; z-index: 1; }
+        .theme-toggle-pill .fa-sun { color: #f59e0b; }
+        .theme-toggle-pill .fa-moon { color: #999; }
+        .theme-toggle-pill .thumb { position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; background: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 2; border: 1px solid var(--text-main);}
+        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(24px); background: #333; border-color: var(--accent-color); }
+
+        /* RTL BUTTON STYLE */
+        .rtl-btn-style {
+            width: 44px; height: 28px; background: var(--bg-secondary); border-radius: 30px; border: 2px solid var(--text-main);
+            display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; cursor: pointer;
+            color: var(--text-main); transition: all 0.3s ease;
+        }
+        body.dark-mode .rtl-btn-style { border-color: var(--accent-color); }
+        .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+
+        /* === BUTTON DESIGN === */
+        .btn { 
+            padding: 14px 32px; font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; 
+            transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; 
+            position: relative; border: 3px solid var(--text-main); border-radius: 12px;
+        }
+        .btn-solid { background: var(--accent-color); color: #FFFFFF !important; box-shadow: 4px 4px 0px var(--text-main); }
+        .btn-solid:hover { background: var(--accent-dark); transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--text-main); }
+        .btn-outline { background: var(--bg-card); color: var(--text-main); box-shadow: 4px 4px 0px var(--text-main); }
+        .btn-outline:hover { background: var(--text-main); color: var(--bg-card) !important; transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--text-main); }
+        
+        body.dark-mode .btn { border-color: var(--accent-color); }
+        body.dark-mode .btn-solid { box-shadow: 4px 4px 0px var(--accent-color); }
+        body.dark-mode .btn-solid:hover { box-shadow: 6px 6px 0px var(--accent-color); }
+        body.dark-mode .btn-outline { box-shadow: 4px 4px 0px var(--accent-color); color: var(--text-main); }
+        body.dark-mode .btn-outline:hover { background: var(--accent-color); color: #fff !important; box-shadow: 6px 6px 0px var(--accent-color); }
+
+        /* MOBILE OVERLAY BACKGROUND */
+        .drawer-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; backdrop-filter: blur(4px); }
+        .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+        /* HAMBURGER MENU */
+        .fullscreen-menu { 
+            position: fixed; inset: 0; width: 100%; height: 100dvh; max-width: 100%; background: var(--drawer-bg); z-index: 1001; display: flex; flex-direction: column; 
+            opacity: 0; visibility: hidden; transform: scale(0.95); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); backdrop-filter: blur(20px);
+        }
+        .fullscreen-menu.active { opacity: 1; visibility: visible; transform: scale(1); }
+        .mobile-link { display: inline-block; width: auto; padding: 10px 0; font-size: 1.5rem; font-weight: 800; text-transform: uppercase; letter-spacing: -0.5px; color: var(--text-main); text-decoration: none; transition: all 0.3s; text-align: center; }
+        .mobile-link:hover { color: var(--accent-color); transform: scale(1.05); }
+
+        /* FOOTER */
+        footer { background: var(--bg-secondary); border-top: 3px solid var(--text-main); padding-top: 80px; }
+        body.dark-mode footer { border-color: var(--accent-color); }
+        footer h4 { color: var(--text-main); font-weight: 900; font-size: 1.2rem; margin-bottom: 24px; text-transform: uppercase; } 
+        footer a, footer li, footer span { color: var(--text-muted); text-decoration: none; transition: all 0.3s; font-size: 1rem; font-weight: 500; }
+        footer a:hover { color: var(--accent-color); }
+        .social-link-circle { width: 48px; height: 48px; border-radius: 12px; border: 2px solid var(--text-main); display: flex; align-items: center; justify-content: center; transition: all 0.3s; color: var(--text-main); background: var(--bg-card); box-shadow: 2px 2px 0px var(--text-main); }
+        .social-link-circle:hover { background: var(--accent-color); color: #FFFFFF; transform: translate(-2px, -2px); box-shadow: 4px 4px 0px var(--text-main); }
+        body.dark-mode .social-link-circle { border-color: var(--accent-color); box-shadow: 2px 2px 0px var(--accent-color); }
+        body.dark-mode .social-link-circle:hover { box-shadow: 4px 4px 0px var(--accent-color); }
+        .footer-bottom { border-top: 2px solid var(--border-color); padding: 32px 0; margin-top: 60px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="w-full flex items-center justify-between">
+            <div class="flex items-center flex-1">
+                <a href="index.html" class="text-2xl font-black tracking-tighter block" style="color: black !important; text-decoration: none;">
+                    SkatersCrib
+                </a>
+            </div>
+            <div class="hidden xl:flex justify-center items-center gap-1">
+                <div class="dropdown">
+                    <div class="nav-link">Home <i class="fas fa-chevron-down text-[10px] ml-1 opacity-70"></i></div>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-inner">
+                            <a href="index.html" class="dropdown-item">Home Page 1</a>
+                            <a href="home-2.html" class="dropdown-item">Home Page 2</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="pricing.html" class="nav-link active">Pricing</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <div class="dropdown">
+                    <div class="nav-link">Dashboard <i class="fas fa-chevron-down text-[10px] ml-1 opacity-70"></i></div>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-inner">
+                            <a href="user.html" class="dropdown-item">User Dashboard</a>
+                            <a href="admin.html" class="dropdown-item">Admin Dashboard</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden xl:flex items-center justify-end flex-1 gap-3">
+                <a href="login.html" class="btn btn-outline !py-2 !px-5 !text-[11px]">Login</a> 
+                <a href="register.html" class="btn btn-solid !py-2 !px-5 !text-[11px]">Register</a>
+                <div class="w-px h-6 bg-[var(--text-main)] mx-1 opacity-20"></div>
+                <div id="theme-toggle-desktop" class="theme-toggle-pill" title="Toggle Dark Mode">
+                    <i class="fas fa-sun"></i><i class="fas fa-moon"></i><div class="thumb"></div>
+                </div>
+                <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
+            </div>
+            <div class="xl:hidden flex items-center justify-end flex-1">
+                <button id="mobile-btn" class="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] border-2 border-[var(--text-main)] flex items-center justify-center text-[var(--text-main)] transition-all" style="box-shadow: 2px 2px 0px var(--text-main);">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+
+    <div class="fullscreen-menu" id="fullscreen-menu">
+        <div class="w-full px-8 py-6 flex justify-between items-center shrink-0">
+            <a href="index.html" class="text-2xl font-black tracking-tighter block" style="color: black !important; text-decoration: none;">
+                SkatersCrib
+            </a>
+            <button id="close-menu" class="w-10 h-10 rounded-xl border-2 border-[var(--text-main)] flex items-center justify-center transition-all text-xl bg-[var(--bg-secondary)] text-[var(--text-main)]" style="box-shadow: 2px 2px 0px var(--text-main);">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="flex flex-col items-center justify-start w-full overflow-y-auto flex-1 gap-2 pt-6 pb-8">
+            <a href="index.html" class="mobile-link">Home Page 1</a>
+            <a href="home-2.html" class="mobile-link">Home Page 2</a>
+            <a href="about.html" class="mobile-link">About</a>
+            <a href="services.html" class="mobile-link">Services</a>
+            <a href="pricing.html" class="mobile-link" style="color: var(--accent-color);">Pricing</a>
+            <a href="blog.html" class="mobile-link">Blog</a>
+            <a href="faq.html" class="mobile-link">FAQ</a>
+            <a href="contact.html" class="mobile-link">Contact</a>
+            <div class="w-16 h-px bg-[var(--border-color)] my-4"></div>
+            <span class="text-[10px] font-bold text-[var(--accent-color)] uppercase tracking-widest mb-1">Portals</span>
+            <a href="user.html" class="mobile-link !text-lg !font-semibold text-[var(--text-muted)]">User Dashboard</a>
+            <a href="admin.html" class="mobile-link !text-lg !font-semibold text-[var(--text-muted)]">Admin Dashboard</a>
+        </div>
+        <div class="w-full px-8 py-8 border-t border-[var(--border-color)] flex flex-col gap-6 shrink-0 bg-[var(--bg-secondary)]">
+            <div class="flex justify-between items-center w-full max-w-sm mx-auto">
+                <div class="flex items-center gap-3">
+                    <span class="text-[var(--text-muted)] font-bold text-[10px] uppercase tracking-widest">Theme</span>
+                    <div id="theme-toggle-mobile" class="theme-toggle-pill"><i class="fas fa-sun"></i><i class="fas fa-moon"></i><div class="thumb"></div></div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="text-[var(--text-muted)] font-bold text-[10px] uppercase tracking-widest">Dir</span>
+                    <button id="rtl-toggle-mobile" class="rtl-btn-style">LTR</button>
+                </div>
+            </div>
+            <div class="flex gap-4 w-full max-w-sm mx-auto">
+                <a href="login.html" class="btn btn-outline flex-1 !py-3">Login</a>
+                <a href="register.html" class="btn btn-solid flex-1 !py-3">Register</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="relative w-full min-h-[100dvh] pt-36 lg:pt-28 pb-12 lg:pb-8 flex items-center justify-center overflow-hidden border-b-[6px] border-[var(--text-main)]">
+        <div class="absolute inset-0 z-0 bg-black">
+            <img src="images/pexels-cottonbro-10118266.jpg" alt="Skateboard Wheels and Parts" class="w-full h-full object-cover animate-zoom opacity-60" />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-[var(--bg-color)]"></div>
+        </div>
+
+        <div class="max-w-[1100px] mx-auto px-4 sm:px-6 w-full flex flex-col items-center justify-center text-center relative z-10">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--accent-color)] border-2 border-white text-white text-xs font-black uppercase tracking-widest mb-8 neo-shadow">
+                <i class="fas fa-tag"></i> Clear & Honest Rates
+            </div>
+            <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1] mb-8 text-white tracking-tighter drop-shadow-2xl">
+                PREMIUM PARTS <br class="hidden sm:block">
+                <span style="color: var(--accent-color); text-shadow: 4px 4px 0px #000;">NO HIDDEN FEES</span>.
+            </h1>
+            <p class="text-gray-200 text-lg sm:text-xl md:text-2xl leading-relaxed max-w-3xl font-semibold mb-12 drop-shadow-lg">
+                Whether you're piecing together a custom deck or doing a full hardware overhaul, our pricing is transparent and straightforward. Build your setup on your budget.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 w-full sm:w-auto">
+                <a href="#pricing-tables" class="btn btn-solid group !py-4 sm:!py-5 !px-10 text-sm sm:text-base">
+                    <span>View Plans & Parts</span>
+                    <i class="fas fa-arrow-down ml-2 transition-transform group-hover:translate-y-1"></i>
+                </a>
+                <a href="contact.html" class="btn btn-outline !py-4 sm:!py-5 !px-10 text-sm sm:text-base bg-white !text-black border-2 !border-black" style="box-shadow: 4px 4px 0px black;">
+                    <i class="fas fa-envelope mr-2 text-[var(--accent-color)]"></i> Request Custom Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing-tables" class="w-full py-32 bg-[var(--bg-secondary)] border-b-[6px] border-[var(--text-main)]">
+        <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-4xl md:text-6xl font-black text-[var(--text-main)] uppercase tracking-tight mb-4">Choose Your <span class="text-[var(--accent-color)]">Build Plan</span></h2>
+                <p class="text-xl text-[var(--text-muted)] font-bold">From raw beginners to concrete veterans, we have a custom tier for everyone.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch max-w-lg lg:max-w-none mx-auto">
+                
+                <div class="flex flex-col bg-[var(--bg-card)] p-10 rounded-2xl neo-border h-full transition-transform hover:-translate-y-2 duration-300" style="box-shadow: 8px 8px 0px var(--text-main);">
+                    <h3 class="text-2xl font-black text-[var(--text-main)] uppercase mb-2">Street Rat</h3>
+                    <div class="flex items-end gap-2 mb-6">
+                        <span class="text-5xl font-black text-[var(--text-main)]">$89</span>
+                        <span class="text-[var(--text-muted)] font-bold mb-1">/ build</span>
+                    </div>
+                    <p class="text-[var(--text-muted)] font-medium mb-8">Perfect for beginners hitting the pavement for the first time.</p>
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-start gap-3 text-lg font-bold text-[var(--text-main)]"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> Blank 7-Ply Maple Deck</li>
+                        <li class="flex items-start gap-3 text-lg font-bold text-[var(--text-main)]"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> Standard Black Grip Tape</li>
+                        <li class="flex items-start gap-3 text-lg font-bold text-[var(--text-main)]"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> Basic Hardware Kit</li>
+                        <li class="flex items-start gap-3 text-lg font-bold text-[var(--text-main)] opacity-50"><i class="fas fa-times text-[var(--text-muted)] mt-1"></i> No Laser Engraving</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline w-full mt-auto">Select Plan</a>
+                </div>
+
+                <div class="flex flex-col bg-[var(--text-main)] p-10 rounded-2xl neo-border h-full transition-transform hover:-translate-y-2 duration-300 relative" style="box-shadow: 8px 8px 0px var(--accent-color); border-color: var(--accent-color);">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[var(--accent-color)] text-white px-6 py-2 font-black uppercase text-xs rounded-full border-2 border-[var(--text-main)]">Most Popular</div>
+                    
+                    <h3 class="text-2xl font-black text-white uppercase mb-2 mt-2">Park Ripper</h3>
+                    <div class="flex items-end gap-2 mb-6">
+                        <span class="text-5xl font-black text-white">$149</span>
+                        <span class="text-gray-400 font-bold mb-1">/ build</span>
+                    </div>
+                    <p class="text-gray-300 font-medium mb-8">The go-to setup for intermediate riders pushing their limits in the bowl or street.</p>
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-start gap-3 text-lg font-bold text-white"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> Pro Series Deck (Graphic)</li>
+                        <li class="flex items-start gap-3 text-lg font-bold text-white"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> Hollow Kingpin Trucks</li>
+                        <li class="flex items-start gap-3 text-lg font-bold text-white"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> 99a / 101a Park Wheels</li>
+                        <li class="flex items-start gap-3 text-lg font-bold text-white"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> ABEC-7 Precision Bearings</li>
+                        <li class="flex items-start gap-3 text-lg font-bold text-white"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> Free Setup & Tuning</li>
+                    </ul>
+                    <a href="#" class="btn btn-solid w-full mt-auto border-white">Select Plan</a>
+                </div>
+
+                <div class="flex flex-col bg-[var(--bg-card)] p-10 rounded-2xl neo-border h-full transition-transform hover:-translate-y-2 duration-300" style="box-shadow: 8px 8px 0px var(--text-main);">
+                    <h3 class="text-2xl font-black text-[var(--text-main)] uppercase mb-2">Concrete King</h3>
+                    <div class="flex items-end gap-2 mb-6">
+                        <span class="text-5xl font-black text-[var(--text-main)]">$249</span>
+                        <span class="text-[var(--text-muted)] font-bold mb-1">/ build</span>
+                    </div>
+                    <p class="text-[var(--text-muted)] font-medium mb-8">Professional-grade machinery custom-tailored to your exact specifications.</p>
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-start gap-3 text-lg font-bold text-[var(--text-main)]"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> Custom Pressed Mold Shape</li>
+                        <li class="flex items-start gap-3 text-lg font-bold text-[var(--text-main)]"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> Laser-Cut Grip Art Design</li>
+                        <li class="flex items-start gap-3 text-lg font-bold text-[var(--text-main)]"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> Forged Titanium Trucks</li>
+                        <li class="flex items-start gap-3 text-lg font-bold text-[var(--text-main)]"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> ABEC-9 Ceramic Bearings</li>
+                        <li class="flex items-start gap-3 text-lg font-bold text-[var(--text-main)]"><i class="fas fa-check text-[var(--accent-color)] mt-1"></i> 1 Year Snap Warranty</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline w-full mt-auto">Select Plan</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 pt-4">
+                <div class="lg:col-span-4">
+                    <a href="index.html" class="text-2xl font-black tracking-tighter block mb-6" style="color: black !important; text-decoration: none;">
+    SkatersCrib
+</a>
+                    <p class="opacity-80 leading-relaxed text-base font-medium mb-8 max-w-sm" style="color: var(--text-muted);">
+                        Crafting premium, custom-built skateboards and longboards for riders of all levels. High-quality materials, precision engineering. Your ride, your rules.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-link-circle text-xl"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link-circle text-xl"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link-circle text-xl"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-8">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+                        <div>
+                            <h4>Workshop Portal</h4>
+                            <ul class="space-y-4">
+                                <li><a href="login.html">Rider Login</a></li>
+                                <li><a href="user.html">My Dashboard</a></li>
+                                <li><a href="#">My Custom Builds</a></li>
+                                <li><a href="pricing.html">Part Pricing</a></li>
+                                <li><a href="faq.html">Maintenance FAQ</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Our Services</h4>
+                            <ul class="space-y-4">
+                                <li><a href="services.html">Custom Decks</a></li>
+                                <li><a href="services.html">Grip Tape Art</a></li>
+                                <li><a href="services.html">Truck Tuning</a></li>
+                                <li><a href="services.html">Wheel Swaps</a></li>
+                                <li><a href="services.html">In-Person Workshops</a></li>
+                            </ul>
+                        </div>
+                        <div class="sm:col-span-2 md:col-span-1">
+                            <h4>The Garage</h4>
+                            <ul class="space-y-4 text-[var(--text-muted)] text-base font-medium">
+                                <li class="flex items-start gap-4"><i class="fas fa-map-marker-alt mt-1 shrink-0 text-xl" style="color: var(--accent-color);"></i><span>404 Halfpipe Ave<br>Downtown District, 90210</span></li>
+                                <li class="flex items-center gap-4"><i class="fas fa-phone shrink-0 text-xl" style="color: var(--accent-color);"></i><a href="tel:+15550198" class="break-all hover:text-[var(--accent-color)]">+1 (555) 019-8000</a></li>
+                                <li class="flex items-center gap-4"><i class="fas fa-envelope shrink-0 text-xl" style="color: var(--accent-color);"></i><a href="contact.html" class="break-all hover:text-[var(--accent-color)]">builds@skaterscrib.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom flex flex-col md:flex-row justify-between items-center text-base gap-6 font-bold uppercase tracking-wide">
+                <p style="color: var(--text-muted);">&copy; 2026 SkatersCrib Workshop. All rights reserved.</p>
+                <div class="flex flex-wrap justify-center gap-6 sm:gap-8">
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Build Guarantees</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileBtn = document.getElementById('mobile-btn'); 
+        const fullscreenMenu = document.getElementById('fullscreen-menu'); 
+        const closeMenu = document.getElementById('close-menu'); 
+        const drawerOverlay = document.getElementById('drawer-overlay');
+        
+        function toggleMenu() { 
+            fullscreenMenu.classList.toggle('active'); 
+            drawerOverlay.classList.toggle('active');
+            document.body.style.overflow = fullscreenMenu.classList.contains('active') ? 'hidden' : 'auto';
+        }
+        
+        mobileBtn.onclick = toggleMenu; 
+        closeMenu.onclick = toggleMenu; 
+        drawerOverlay.onclick = toggleMenu; 
+        
+        const themeDesktop = document.getElementById('theme-toggle-desktop');
+        const themeMobile = document.getElementById('theme-toggle-mobile'); 
+        const theme = localStorage.getItem('theme') || 'light';
+
+        function updateThemeUI(isDark) {
+            if (isDark) {
+                document.body.classList.add('dark-mode'); 
+                if(themeMobile) themeMobile.classList.add('active');
+            } else {
+                document.body.classList.remove('dark-mode');
+                if(themeMobile) themeMobile.classList.remove('active');
+            }
+        }
+        
+        updateThemeUI(theme === 'dark');
+        
+        function toggleTheme() { 
+            const isDark = !document.body.classList.contains('dark-mode');
+            updateThemeUI(isDark);
+            localStorage.setItem('theme', isDark ? 'dark' : 'light'); 
+        }
+        
+        themeDesktop.onclick = toggleTheme; 
+        if(themeMobile) themeMobile.onclick = toggleTheme;
+        
+        // RTL Logic
+        const rtlBtn = document.getElementById('rtl-btn'); 
+        const rtlMobile = document.getElementById('rtl-toggle-mobile'); 
+        const dir = localStorage.getItem('dir') || 'ltr';
+        
+        function updateRTLUI(currentDir) {
+            const isRTL = currentDir === 'rtl';
+            if (rtlBtn) rtlBtn.innerText = isRTL ? 'RTL' : 'LTR';
+            if (rtlMobile) rtlMobile.innerText = isRTL ? 'RTL' : 'LTR';
+        }
+
+        if (dir === 'rtl') { 
+            document.documentElement.dir = 'rtl'; 
+        }
+        updateRTLUI(dir);
+        
+        function toggleRTL() { 
+            const isRTL = document.documentElement.dir === 'rtl'; 
+            const newDir = isRTL ? 'ltr' : 'rtl';
+            document.documentElement.dir = newDir; 
+            localStorage.setItem('dir', newDir); 
+            updateRTLUI(newDir);
+        }
+        
+        if (rtlBtn) rtlBtn.onclick = toggleRTL; 
+        if (rtlMobile) rtlMobile.onclick = toggleRTL;
+    </script>
+</body>
+</html>
