@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkatersCrib - Skateboard & Longboard Workshop</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/jpeg" href="images\istockphoto-1081181628-612x612.jpg">
+    <link rel="icon" type="image/png" href="images\istockphoto-1081181628-612x612.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
@@ -64,14 +66,14 @@
         }
         .animate-zoom { animation: subtleZoom 20s infinite alternate ease-in-out; }
 
-        /* === NEO-BRUTALIST UTILITIES === */
-        .neo-border { border: 3px solid var(--text-main); }
-        .neo-shadow { box-shadow: 6px 6px 0px var(--text-main); transition: all 0.3s ease; }
-        .neo-shadow:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0px var(--text-main); }
+        /* === MODERN DESIGN UTILITIES === */
+        .neo-border { border: 1px solid var(--border-color); }
+        .neo-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; }
+        .neo-shadow:hover { transform: translateY(-3px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
         
-        body.dark-mode .neo-border { border-color: var(--accent-color); }
-        body.dark-mode .neo-shadow { box-shadow: 6px 6px 0px var(--accent-color); }
-        body.dark-mode .neo-shadow:hover { box-shadow: 8px 8px 0px var(--accent-color); }
+        body.dark-mode .neo-border { border-color: var(--border-color); }
+        body.dark-mode .neo-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5); }
+        body.dark-mode .neo-shadow:hover { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6); }
 
         /* === NAVBAR DESIGN === */
         .navbar { 
@@ -80,15 +82,15 @@
             background: var(--nav-bg); 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 2px solid var(--text-main);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
-            box-shadow: 4px 4px 0px var(--text-main);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             padding: 10px 24px; transition: all 0.3s ease;
         }
 
         body.dark-mode .navbar {
-            border-color: var(--accent-color);
-            box-shadow: 4px 4px 0px var(--accent-color);
+            border-color: var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
         }
         
         /* === NAV LINK HOVER EFFECT === */
@@ -114,12 +116,12 @@
         .dropdown { position: relative; display: flex; align-items: center; height: 100%; }
         .dropdown-menu { position: absolute; top: 100%; left: 0; transform: translateY(15px); margin-top: 15px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 100; }
         .dropdown-inner { 
-            background: var(--bg-card); border: 2px solid var(--text-main); 
-            border-radius: 12px; min-width: 220px; box-shadow: 4px 4px 0px var(--text-main); padding: 8px; display: flex; flex-direction: column; gap: 4px; 
+            background: var(--bg-card); border: 1px solid var(--border-color); 
+            border-radius: 12px; min-width: 220px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); padding: 8px; display: flex; flex-direction: column; gap: 4px; 
         }
         body.dark-mode .dropdown-inner {
-            border-color: var(--accent-color);
-            box-shadow: 4px 4px 0px var(--accent-color);
+            border-color: var(--border-color);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
         }
         .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
         
@@ -128,39 +130,36 @@
         [dir="rtl"] .dropdown-item:hover { padding-left: 16px; padding-right: 20px; }
 
         /* PILL TOGGLE */
-        .theme-toggle-pill { width: 52px; height: 28px; background: var(--bg-secondary); border-radius: 30px; position: relative; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 6px; border: 2px solid var(--text-main); }
-        body.dark-mode .theme-toggle-pill { border-color: var(--accent-color); }
+        .theme-toggle-pill { width: 52px; height: 28px; background: var(--bg-secondary); border-radius: 30px; position: relative; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 6px; border: 1px solid var(--border-color); }
+        body.dark-mode .theme-toggle-pill { border-color: var(--border-color); }
         .theme-toggle-pill i { font-size: 10px; z-index: 1; }
         .theme-toggle-pill .fa-sun { color: #f59e0b; }
         .theme-toggle-pill .fa-moon { color: #999; }
-        .theme-toggle-pill .thumb { position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; background: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 2; border: 1px solid var(--text-main);}
-        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(24px); background: #333; border-color: var(--accent-color); }
+        .theme-toggle-pill .thumb { position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; background: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 2; border: 1px solid var(--border-color);}
+        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(24px); background: #333; border-color: var(--border-color); }
 
         /* RTL BUTTON STYLE */
         .rtl-btn-style {
-            width: 44px; height: 28px; background: var(--bg-secondary); border-radius: 30px; border: 2px solid var(--text-main);
+            width: 44px; height: 28px; background: var(--bg-secondary); border-radius: 30px; border: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; cursor: pointer;
             color: var(--text-main); transition: all 0.3s ease;
         }
-        body.dark-mode .rtl-btn-style { border-color: var(--accent-color); }
+        body.dark-mode .rtl-btn-style { border-color: var(--border-color); }
         .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
 
         /* === BUTTON DESIGN === */
         .btn { 
-            padding: 14px 32px; font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; 
+            padding: 14px 32px; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; 
             transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; 
-            position: relative; border: 3px solid var(--text-main); border-radius: 12px;
+            position: relative; border: 1px solid transparent; border-radius: 12px;
         }
-        .btn-solid { background: var(--accent-color); color: #FFFFFF !important; box-shadow: 4px 4px 0px var(--text-main); }
-        .btn-solid:hover { background: var(--accent-dark); transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--text-main); }
-        .btn-outline { background: var(--bg-card); color: var(--text-main); box-shadow: 4px 4px 0px var(--text-main); }
-        .btn-outline:hover { background: var(--text-main); color: var(--bg-card) !important; transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--text-main); }
+        .btn-solid { background: var(--accent-color); color: #FFFFFF !important; box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.4); }
+        .btn-solid:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4); }
+        .btn-outline { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); }
+        .btn-outline:hover { background: var(--text-main); color: var(--bg-card) !important; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
         
-        body.dark-mode .btn { border-color: var(--accent-color); }
-        body.dark-mode .btn-solid { box-shadow: 4px 4px 0px var(--accent-color); }
-        body.dark-mode .btn-solid:hover { box-shadow: 6px 6px 0px var(--accent-color); }
-        body.dark-mode .btn-outline { box-shadow: 4px 4px 0px var(--accent-color); color: var(--text-main); }
-        body.dark-mode .btn-outline:hover { background: var(--accent-color); color: #fff !important; box-shadow: 6px 6px 0px var(--accent-color); }
+        body.dark-mode .btn-outline { border-color: var(--border-color); color: var(--text-main); }
+        body.dark-mode .btn-outline:hover { background: var(--accent-color); border-color: var(--accent-color); color: #fff !important; box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4); }
 
         /* MOBILE OVERLAY BACKGROUND */
         .drawer-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; backdrop-filter: blur(4px); }
@@ -176,16 +175,16 @@
         .mobile-link:hover { color: var(--accent-color); transform: scale(1.05); }
 
         /* FOOTER */
-        footer { background: var(--bg-secondary); border-top: 3px solid var(--text-main); padding-top: 80px; }
-        body.dark-mode footer { border-color: var(--accent-color); }
+        footer { background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding-top: 80px; }
+        body.dark-mode footer { border-color: var(--border-color); }
         footer h4 { color: var(--text-main); font-weight: 900; font-size: 1.2rem; margin-bottom: 24px; text-transform: uppercase; } 
         footer a, footer li, footer span { color: var(--text-muted); text-decoration: none; transition: all 0.3s; font-size: 1rem; font-weight: 500; }
         footer a:hover { color: var(--accent-color); }
-        .social-link-circle { width: 48px; height: 48px; border-radius: 12px; border: 2px solid var(--text-main); display: flex; align-items: center; justify-content: center; transition: all 0.3s; color: var(--text-main); background: var(--bg-card); box-shadow: 2px 2px 0px var(--text-main); }
-        .social-link-circle:hover { background: var(--accent-color); color: #FFFFFF; transform: translate(-2px, -2px); box-shadow: 4px 4px 0px var(--text-main); }
-        body.dark-mode .social-link-circle { border-color: var(--accent-color); box-shadow: 2px 2px 0px var(--accent-color); }
-        body.dark-mode .social-link-circle:hover { box-shadow: 4px 4px 0px var(--accent-color); }
-        .footer-bottom { border-top: 2px solid var(--border-color); padding: 32px 0; margin-top: 60px; }
+        .social-link-circle { width: 48px; height: 48px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; transition: all 0.3s; color: var(--text-main); background: var(--bg-card); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .social-link-circle:hover { background: var(--accent-color); border-color: var(--accent-color); color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 4px 6px rgba(249, 115, 22, 0.3); }
+        body.dark-mode .social-link-circle { border-color: var(--border-color); box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        body.dark-mode .social-link-circle:hover { box-shadow: 0 4px 6px rgba(249, 115, 22, 0.3); }
+        .footer-bottom { border-top: 1px solid var(--border-color); padding: 32px 0; margin-top: 60px; }
     </style>
 </head>
 <body>
@@ -193,7 +192,7 @@
     <nav class="navbar">
         <div class="w-full flex items-center justify-between">
             <div class="flex items-center flex-1">
-                <a href="index.html" class="text-2xl font-black tracking-tighter block" style="color: black !important; text-decoration: none;">
+                <a href="index.html" class="text-2xl font-black tracking-tighter block" style="color: var(--text-main) !important; text-decoration: none;">
                     SkatersCrib
                 </a>
             </div>
@@ -233,7 +232,7 @@
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
             </div>
             <div class="xl:hidden flex items-center justify-end flex-1">
-                <button id="mobile-btn" class="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] border-2 border-[var(--text-main)] flex items-center justify-center text-[var(--text-main)] transition-all" style="box-shadow: 2px 2px 0px var(--text-main);">
+                <button id="mobile-btn" class="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)] flex items-center justify-center text-[var(--text-main)] transition-all shadow-sm hover:shadow-md">
                     <i class="fas fa-bars text-lg"></i>
                 </button>
             </div>
@@ -243,10 +242,10 @@
 
     <div class="fullscreen-menu" id="fullscreen-menu">
         <div class="w-full px-8 py-6 flex justify-between items-center shrink-0">
-            <a href="index.html" class="text-2xl font-black tracking-tighter block" style="color: black !important; text-decoration: none;">
+            <a href="index.html" class="text-2xl font-black tracking-tighter block" style="color: var(--text-main) !important; text-decoration: none;">
                 SkatersCrib
             </a>
-            <button id="close-menu" class="w-10 h-10 rounded-xl border-2 border-[var(--text-main)] flex items-center justify-center transition-all text-xl bg-[var(--bg-secondary)] text-[var(--text-main)]" style="box-shadow: 2px 2px 0px var(--text-main);">
+            <button id="close-menu" class="w-10 h-10 rounded-xl border border-[var(--border-color)] flex items-center justify-center transition-all text-xl bg-[var(--bg-secondary)] text-[var(--text-main)] shadow-sm hover:shadow-md">
                 <i class="fas fa-times"></i>
             </button>
         </div>
@@ -282,19 +281,19 @@
         </div>
     </div>
 
-    <section class="relative w-full min-h-[100dvh] pt-36 lg:pt-28 pb-12 lg:pb-8 flex items-center justify-center overflow-hidden border-b-[6px] border-[var(--text-main)]">
+    <section class="relative w-full min-h-[100dvh] pt-36 lg:pt-28 pb-12 lg:pb-8 flex items-center justify-center overflow-hidden border-b border-[var(--border-color)]">
         <div class="absolute inset-0 z-0 bg-black">
             <img src="images/pexels-cottonbro-5029062.jpg" alt="Custom Skateboard Build" class="w-full h-full object-cover animate-zoom opacity-60" />
             <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-[var(--bg-color)]"></div>
         </div>
 
         <div class="max-w-[1100px] mx-auto px-4 sm:px-6 w-full flex flex-col items-center justify-center text-center relative z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--accent-color)] border-2 border-white text-white text-xs font-black uppercase tracking-widest mb-8 neo-shadow">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--accent-color)] border border-transparent text-white text-xs font-black uppercase tracking-widest mb-8 neo-shadow">
                 <i class="fas fa-fire-alt"></i> 100% Custom Built
             </div>
             <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1] mb-8 text-white tracking-tighter drop-shadow-2xl">
                 DESIGN YOUR <br class="hidden sm:block">
-                <span style="color: var(--accent-color); text-shadow: 4px 4px 0px #000;">PERFECT RIDE</span>.
+                <span style="color: var(--accent-color); text-shadow: 0 4px 6px rgba(0,0,0,0.5);">PERFECT RIDE</span>.
             </h1>
             <p class="text-gray-200 text-lg sm:text-xl md:text-2xl leading-relaxed max-w-3xl font-semibold mb-12 drop-shadow-lg">
                 Stop riding off-the-rack. Build the ultimate setup tailored to your exact style—whether you're hitting the streets, carving bowls, or bombing hills.
@@ -304,7 +303,7 @@
                     <span>Start Building</span>
                     <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
                 </a>
-                <a href="user.html" class="btn btn-outline !py-4 sm:!py-5 !px-10 text-sm sm:text-base bg-white !text-black border-2 !border-black" style="box-shadow: 4px 4px 0px black;">
+                <a href="user.html" class="btn btn-outline !py-4 sm:!py-5 !px-10 text-sm sm:text-base bg-white !text-black border !border-gray-200">
                     <i class="fas fa-wrench mr-2 text-[var(--accent-color)]"></i> Book Workshop
                 </a>
             </div>
@@ -315,7 +314,7 @@
         <div class="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
             <div class="text-center max-w-4xl mx-auto mb-20">
                 <h2 class="text-4xl md:text-6xl font-black text-[var(--text-main)] uppercase tracking-tight mb-6">How It <span class="text-[var(--accent-color)]">Works</span></h2>
-                <div class="w-24 h-2 bg-[var(--text-main)] mx-auto mb-6"></div>
+                <div class="w-24 h-1 bg-[var(--accent-color)] mx-auto mb-6 rounded-full"></div>
                 <p class="text-lg text-[var(--text-muted)] font-medium leading-relaxed">
                     Building a custom board at SkatersCrib isn't just picking parts from a wall. It's a hands-on, three-step journey to perfectly match your riding mechanics and personal aesthetic.
                 </p>
@@ -323,7 +322,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
                 <div class="bg-[var(--bg-secondary)] neo-border neo-shadow rounded-2xl p-10 flex flex-col h-full relative z-10">
-                    <div class="absolute -top-6 -left-6 w-16 h-16 bg-[var(--accent-color)] text-white neo-border flex items-center justify-center font-black text-2xl rounded-xl transform -rotate-6">01</div>
+                    <div class="absolute -top-6 -left-6 w-16 h-16 bg-[var(--accent-color)] text-white flex items-center justify-center font-black text-2xl rounded-xl transform -rotate-6 shadow-lg">01</div>
                     <i class="fas fa-layer-group text-6xl text-[var(--text-main)] mb-8 mt-4"></i>
                     <h3 class="text-2xl font-black text-[var(--text-main)] mb-4 uppercase">The Deck</h3>
                     <p class="text-[var(--text-muted)] font-medium leading-relaxed flex-1 mb-8">
@@ -332,7 +331,7 @@
                     <a href="#" class="font-bold text-[var(--accent-color)] hover:text-[var(--text-main)] transition-colors inline-flex items-center uppercase text-sm tracking-wide">Explore Decks <i class="fas fa-chevron-right ml-2 text-[10px]"></i></a>
                 </div>
                 <div class="bg-[var(--bg-secondary)] neo-border neo-shadow rounded-2xl p-10 flex flex-col h-full relative z-10 md:translate-y-12">
-                    <div class="absolute -top-6 -left-6 w-16 h-16 bg-[var(--accent-color)] text-white neo-border flex items-center justify-center font-black text-2xl rounded-xl transform rotate-3">02</div>
+                    <div class="absolute -top-6 -left-6 w-16 h-16 bg-[var(--accent-color)] text-white flex items-center justify-center font-black text-2xl rounded-xl transform rotate-3 shadow-lg">02</div>
                     <i class="fas fa-cogs text-6xl text-[var(--text-main)] mb-8 mt-4"></i>
                     <h3 class="text-2xl font-black text-[var(--text-main)] mb-4 uppercase">The Hardware</h3>
                     <p class="text-[var(--text-muted)] font-medium leading-relaxed flex-1 mb-8">
@@ -341,7 +340,7 @@
                     <a href="#" class="font-bold text-[var(--accent-color)] hover:text-[var(--text-main)] transition-colors inline-flex items-center uppercase text-sm tracking-wide">View Hardware <i class="fas fa-chevron-right ml-2 text-[10px]"></i></a>
                 </div>
                 <div class="bg-[var(--bg-secondary)] neo-border neo-shadow rounded-2xl p-10 flex flex-col h-full relative z-10">
-                    <div class="absolute -top-6 -left-6 w-16 h-16 bg-[var(--accent-color)] text-white neo-border flex items-center justify-center font-black text-2xl rounded-xl transform -rotate-3">03</div>
+                    <div class="absolute -top-6 -left-6 w-16 h-16 bg-[var(--accent-color)] text-white flex items-center justify-center font-black text-2xl rounded-xl transform -rotate-3 shadow-lg">03</div>
                     <i class="fas fa-dharmachakra text-6xl text-[var(--text-main)] mb-8 mt-4"></i>
                     <h3 class="text-2xl font-black text-[var(--text-main)] mb-4 uppercase">The Grip & Wheels</h3>
                     <p class="text-[var(--text-muted)] font-medium leading-relaxed flex-1 mb-8">
@@ -353,11 +352,11 @@
         </div>
     </section>
 
-    <section class="w-full py-32 bg-[var(--bg-secondary)] border-y-[4px] border-[var(--text-main)]">
+    <section class="w-full py-32 bg-[var(--bg-secondary)] border-y border-[var(--border-color)]">
         <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
             <div class="flex flex-col items-center justify-center text-center mb-16 gap-8">
                 <div class="max-w-3xl">
-                    <div class="inline-block bg-[var(--text-main)] text-[var(--bg-card)] font-bold px-4 py-2 text-xs uppercase tracking-widest mb-4 rounded-md">Featured Builds</div>
+                    <div class="inline-block bg-[var(--text-main)] text-[var(--bg-card)] font-bold px-4 py-2 text-xs uppercase tracking-widest mb-4 rounded-md shadow-sm">Featured Builds</div>
                     <h2 class="text-4xl md:text-6xl font-black text-[var(--text-main)] uppercase tracking-tight">Recent <br><span class="text-[var(--accent-color)]">Masterpieces</span></h2>
                 </div>
                 <a href="#" class="btn btn-outline !py-4 !px-8 shrink-0">View All Builds</a>
@@ -389,31 +388,29 @@
         
         <div class="max-w-[1440px] mx-auto px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
             <div class="order-2 lg:order-1 relative">
-                <div class="absolute inset-0 bg-[var(--text-main)] translate-x-4 translate-y-4 rounded-3xl"></div>
-                <img src="images/pexels-yaroslav-shuraev-4889167.jpg" alt="Workshop Garage" class="relative z-10 w-full h-[600px] object-cover rounded-3xl border-4 border-white filter contrast-125">
-                
-                
+                <div class="absolute inset-0 bg-[var(--text-main)] translate-x-4 translate-y-4 rounded-3xl shadow-xl"></div>
+                <img src="images/pexels-yaroslav-shuraev-4889167.jpg" alt="Workshop Garage" class="relative z-10 w-full h-[600px] object-cover rounded-3xl border-2 border-white filter contrast-125 shadow-2xl">
             </div>
 
             <div class="order-1 lg:order-2 flex flex-col items-start text-left">
                 <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter mb-8 leading-[1]">
                     Built By <br><span class="text-transparent" style="-webkit-text-stroke: 2px white;">Skaters.</span><br>For Skaters.
                 </h2>
-                <div class="w-20 h-2 bg-white mb-8"></div>
+                <div class="w-20 h-1 bg-white mb-8 rounded-full"></div>
                 <p class="text-lg md:text-xl font-medium leading-relaxed mb-6 opacity-90">
                     SkatersCrib started in a dusty garage back in 2015. We were tired of mass-produced decks snapping after two weeks and trucks that couldn't handle a heavy grind.
                 </p>
                 <p class="text-lg md:text-xl font-medium leading-relaxed mb-10 opacity-90">
                     We source our own wood, press our own decks, and test every piece of hardware in the streets before we ever put it on our shelves. When you build a board here, you're joining a bloodline of dedicated craftsmen and riders.
                 </p>
-                <a href="about.html" class="btn bg-white text-[var(--accent-color)] border-white hover:bg-black hover:text-white hover:border-black !py-4 !px-10 text-sm neo-shadow">
+                <a href="about.html" class="btn bg-white text-[var(--accent-color)] hover:bg-black hover:text-white !py-4 !px-10 text-sm shadow-lg">
                     Read Our Manifesto
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="w-full py-32 bg-[var(--bg-color)] border-b-[4px] border-[var(--text-main)]">
+    <section class="w-full py-32 bg-[var(--bg-color)] border-b border-[var(--border-color)]">
         <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
             <div class="text-center mb-20">
                 <h2 class="text-4xl md:text-6xl font-black text-[var(--text-main)] uppercase tracking-tight">Word on the <span class="text-[var(--accent-color)]">Street</span></h2>
@@ -421,7 +418,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-[var(--bg-secondary)] neo-border neo-shadow p-10 rounded-2xl flex flex-col relative mt-12 md:mt-0">
-                    <div class="w-20 h-20 bg-[var(--bg-card)] neo-border absolute -top-10 left-10 rounded-full overflow-hidden">
+                    <div class="w-20 h-20 bg-[var(--bg-card)] neo-border absolute -top-10 left-10 rounded-full overflow-hidden shadow-md">
                         <img src="images/pexels-carlos-baeza-546142-2777671.jpg" alt="Rider" class="w-full h-full object-cover">
                     </div>
                     <i class="fas fa-quote-right text-5xl text-[var(--text-main)] opacity-10 absolute top-8 right-8"></i>
@@ -434,22 +431,22 @@
                         <p class="text-[var(--text-muted)] font-bold text-sm">Street Skater</p>
                     </div>
                 </div>
-                <div class="bg-[var(--text-main)] text-[var(--bg-card)] neo-border neo-shadow p-10 rounded-2xl flex flex-col relative mt-12 md:mt-16 transform md:scale-105 z-10" style="box-shadow: 8px 8px 0px var(--accent-color); border-color: var(--accent-color);">
-                    <div class="w-20 h-20 bg-[var(--bg-card)] border-4 border-[var(--accent-color)] absolute -top-10 left-10 rounded-full overflow-hidden">
+                <div class="bg-[var(--text-main)] text-[var(--bg-card)] neo-border neo-shadow p-10 rounded-2xl flex flex-col relative mt-12 md:mt-16 transform md:scale-105 z-10 border-none ring-1 ring-[var(--accent-color)] shadow-xl">
+                    <div class="w-20 h-20 bg-[var(--bg-card)] border-4 border-[var(--accent-color)] absolute -top-10 left-10 rounded-full overflow-hidden shadow-md">
                         <img src="images/pexels-m1ddl3-m7n-288920932-13182833.jpg" alt="Rider" class="w-full h-full object-cover filter grayscale">
                     </div>
-                    <i class="fas fa-quote-right text-5xl text-white opacity-10 absolute top-8 right-8"></i>
+                    <i class="fas fa-quote-right text-5xl opacity-10 absolute top-8 right-8" style="color: var(--bg-card);"></i>
                     <div class="mt-8 flex-1">
                         <div class="flex text-[var(--accent-color)] mb-4 text-lg"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <p class="text-white text-lg font-bold leading-relaxed mb-6">"I needed a downhill board that wouldn't get speed wobbles at 40mph. The crew set me up with a custom drop-deck that feels like riding on rails. Absolutely flawless."</p>
+                        <p class="text-[var(--bg-card)] text-lg font-bold leading-relaxed mb-6">"I needed a downhill board that wouldn't get speed wobbles at 40mph. The crew set me up with a custom drop-deck that feels like riding on rails. Absolutely flawless."</p>
                     </div>
                     <div>
-                        <h4 class="font-black text-xl text-white uppercase">Elena R.</h4>
-                        <p class="text-gray-400 font-bold text-sm">Downhill Bomber</p>
+                        <h4 class="font-black text-xl text-[var(--bg-card)] uppercase">Elena R.</h4>
+                        <p class="font-bold text-sm opacity-80" style="color: var(--bg-card);">Downhill Bomber</p>
                     </div>
                 </div>
                 <div class="bg-[var(--bg-secondary)] neo-border neo-shadow p-10 rounded-2xl flex flex-col relative mt-12 md:mt-0">
-                    <div class="w-20 h-20 bg-[var(--bg-card)] neo-border absolute -top-10 left-10 rounded-full overflow-hidden">
+                    <div class="w-20 h-20 bg-[var(--bg-card)] neo-border absolute -top-10 left-10 rounded-full overflow-hidden shadow-md">
                         <img src="images/pexels-cafer-caner-savli-1725684886-32930978.jpg" alt="Rider" class="w-full h-full object-cover">
                     </div>
                     <i class="fas fa-quote-right text-5xl text-[var(--text-main)] opacity-10 absolute top-8 right-8"></i>
@@ -468,12 +465,12 @@
 
     <section class="w-full py-32 bg-[var(--bg-secondary)] relative z-0">
         <div class="max-w-[1200px] mx-auto px-6 lg:px-12">
-            <div class="bg-[var(--accent-color)] neo-border neo-shadow rounded-3xl p-10 lg:p-20 text-center relative overflow-hidden" style="box-shadow: 12px 12px 0px var(--text-main);">
+            <div class="bg-[var(--accent-color)] neo-border neo-shadow rounded-3xl p-10 lg:p-20 text-center relative overflow-hidden border-none shadow-2xl">
                 <i class="fas fa-skull text-9xl text-black opacity-10 absolute -top-10 -left-10 transform -rotate-12"></i>
                 <i class="fas fa-bolt text-9xl text-black opacity-10 absolute -bottom-10 -right-10 transform rotate-12"></i>
                 
                 <div class="relative z-10 flex flex-col items-center">
-                    <span class="bg-black text-white text-xs font-black uppercase tracking-widest px-4 py-2 rounded-md mb-8 inline-block">Join The Crew</span>
+                    <span class="bg-black text-white text-xs font-black uppercase tracking-widest px-4 py-2 rounded-md mb-8 inline-block shadow-sm">Join The Crew</span>
                     <h2 class="text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase tracking-tighter mb-6 drop-shadow-md leading-tight">
                         Don't Miss The <br>Next Drop.
                     </h2>
@@ -482,8 +479,8 @@
                     </p>
                     
                     <form class="w-full max-w-3xl flex flex-col md:flex-row gap-4 justify-center">
-                        <input type="email" placeholder="ENTER YOUR EMAIL..." class="flex-1 px-8 py-5 text-lg font-bold text-black bg-white neo-border focus:outline-none placeholder-gray-500 rounded-xl" required>
-                        <button type="submit" class="btn bg-black text-white border-black hover:bg-gray-800 !py-5 !px-12 text-lg shadow-[4px_4px_0px_white]">
+                        <input type="email" placeholder="ENTER YOUR EMAIL..." class="flex-1 px-8 py-5 text-lg font-bold text-black bg-white focus:outline-none placeholder-gray-500 rounded-xl shadow-inner border border-transparent focus:border-black" required>
+                        <button type="submit" class="btn bg-black text-white hover:bg-gray-800 !py-5 !px-12 text-lg shadow-lg">
                             Subscribe <i class="fas fa-paper-plane ml-3"></i>
                         </button>
                     </form>
@@ -496,9 +493,9 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 pt-4">
                 <div class="lg:col-span-4">
-                    <a href="index.html" class="text-2xl font-black tracking-tighter block mb-6" style="color: black !important; text-decoration: none;">
-    SkatersCrib
-</a>
+                    <a href="index.html" class="text-2xl font-black tracking-tighter block mb-6" style="color: var(--text-main) !important; text-decoration: none;">
+                        SkatersCrib
+                    </a>
                     <p class="opacity-80 leading-relaxed text-base font-medium mb-8 max-w-sm" style="color: var(--text-muted);">
                         Crafting premium, custom-built skateboards and longboards for riders of all levels. High-quality materials, precision engineering. Your ride, your rules.
                     </p>

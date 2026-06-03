@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkatersCrib - Home Alternative</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/jpeg" href="images\istockphoto-1081181628-612x612.jpg">
+    <link rel="icon" type="image/png" href="images\istockphoto-1081181628-612x612.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
@@ -64,14 +66,14 @@
         }
         .animate-zoom { animation: subtleZoom 20s infinite alternate ease-in-out; }
 
-        /* === NEO-BRUTALIST UTILITIES === */
-        .neo-border { border: 3px solid var(--text-main); }
-        .neo-shadow { box-shadow: 6px 6px 0px var(--text-main); transition: all 0.3s ease; }
-        .neo-shadow:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0px var(--text-main); }
+        /* === MODERN DESIGN UTILITIES === */
+        .neo-border { border: 1px solid var(--border-color); }
+        .neo-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; }
+        .neo-shadow:hover { transform: translateY(-3px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
         
-        body.dark-mode .neo-border { border-color: var(--accent-color); }
-        body.dark-mode .neo-shadow { box-shadow: 6px 6px 0px var(--accent-color); }
-        body.dark-mode .neo-shadow:hover { box-shadow: 8px 8px 0px var(--accent-color); }
+        body.dark-mode .neo-border { border-color: var(--border-color); }
+        body.dark-mode .neo-shadow { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5); }
+        body.dark-mode .neo-shadow:hover { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.6); }
 
         /* === NAVBAR DESIGN === */
         .navbar { 
@@ -80,15 +82,15 @@
             background: var(--nav-bg); 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 2px solid var(--text-main);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
-            box-shadow: 4px 4px 0px var(--text-main);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             padding: 10px 24px; transition: all 0.3s ease;
         }
 
         body.dark-mode .navbar {
-            border-color: var(--accent-color);
-            box-shadow: 4px 4px 0px var(--accent-color);
+            border-color: var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
         }
         
         /* === NAV LINK HOVER EFFECT === */
@@ -114,12 +116,12 @@
         .dropdown { position: relative; display: flex; align-items: center; height: 100%; }
         .dropdown-menu { position: absolute; top: 100%; left: 0; transform: translateY(15px); margin-top: 15px; opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 100; }
         .dropdown-inner { 
-            background: var(--bg-card); border: 2px solid var(--text-main); 
-            border-radius: 12px; min-width: 220px; box-shadow: 4px 4px 0px var(--text-main); padding: 8px; display: flex; flex-direction: column; gap: 4px; 
+            background: var(--bg-card); border: 1px solid var(--border-color); 
+            border-radius: 12px; min-width: 220px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); padding: 8px; display: flex; flex-direction: column; gap: 4px; 
         }
         body.dark-mode .dropdown-inner {
-            border-color: var(--accent-color);
-            box-shadow: 4px 4px 0px var(--accent-color);
+            border-color: var(--border-color);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
         }
         .dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
         
@@ -128,39 +130,36 @@
         [dir="rtl"] .dropdown-item:hover { padding-left: 16px; padding-right: 20px; }
 
         /* PILL TOGGLE */
-        .theme-toggle-pill { width: 52px; height: 28px; background: var(--bg-secondary); border-radius: 30px; position: relative; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 6px; border: 2px solid var(--text-main); }
-        body.dark-mode .theme-toggle-pill { border-color: var(--accent-color); }
+        .theme-toggle-pill { width: 52px; height: 28px; background: var(--bg-secondary); border-radius: 30px; position: relative; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 0 6px; border: 1px solid var(--border-color); }
+        body.dark-mode .theme-toggle-pill { border-color: var(--border-color); }
         .theme-toggle-pill i { font-size: 10px; z-index: 1; }
         .theme-toggle-pill .fa-sun { color: #f59e0b; }
         .theme-toggle-pill .fa-moon { color: #999; }
-        .theme-toggle-pill .thumb { position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; background: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 2; border: 1px solid var(--text-main);}
-        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(24px); background: #333; border-color: var(--accent-color); }
+        .theme-toggle-pill .thumb { position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; background: white; border-radius: 50%; transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1); box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 2; border: 1px solid var(--border-color);}
+        body.dark-mode .theme-toggle-pill .thumb { transform: translateX(24px); background: #333; border-color: var(--border-color); }
 
         /* RTL BUTTON STYLE */
         .rtl-btn-style {
-            width: 44px; height: 28px; background: var(--bg-secondary); border-radius: 30px; border: 2px solid var(--text-main);
+            width: 44px; height: 28px; background: var(--bg-secondary); border-radius: 30px; border: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; cursor: pointer;
             color: var(--text-main); transition: all 0.3s ease;
         }
-        body.dark-mode .rtl-btn-style { border-color: var(--accent-color); }
+        body.dark-mode .rtl-btn-style { border-color: var(--border-color); }
         .rtl-btn-style:hover { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
 
         /* === BUTTON DESIGN === */
         .btn { 
-            padding: 14px 32px; font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; 
+            padding: 14px 32px; font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; 
             transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; 
-            position: relative; border: 3px solid var(--text-main); border-radius: 12px;
+            position: relative; border: 1px solid transparent; border-radius: 12px;
         }
-        .btn-solid { background: var(--accent-color); color: #FFFFFF !important; box-shadow: 4px 4px 0px var(--text-main); }
-        .btn-solid:hover { background: var(--accent-dark); transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--text-main); }
-        .btn-outline { background: var(--bg-card); color: var(--text-main); box-shadow: 4px 4px 0px var(--text-main); }
-        .btn-outline:hover { background: var(--text-main); color: var(--bg-card) !important; transform: translate(-2px, -2px); box-shadow: 6px 6px 0px var(--text-main); }
+        .btn-solid { background: var(--accent-color); color: #FFFFFF !important; box-shadow: 0 4px 6px -1px rgba(249, 115, 22, 0.4); }
+        .btn-solid:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4); }
+        .btn-outline { background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-main); }
+        .btn-outline:hover { background: var(--text-main); color: var(--bg-card) !important; transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
         
-        body.dark-mode .btn { border-color: var(--accent-color); }
-        body.dark-mode .btn-solid { box-shadow: 4px 4px 0px var(--accent-color); }
-        body.dark-mode .btn-solid:hover { box-shadow: 6px 6px 0px var(--accent-color); }
-        body.dark-mode .btn-outline { box-shadow: 4px 4px 0px var(--accent-color); color: var(--text-main); }
-        body.dark-mode .btn-outline:hover { background: var(--accent-color); color: #fff !important; box-shadow: 6px 6px 0px var(--accent-color); }
+        body.dark-mode .btn-outline { border-color: var(--border-color); color: var(--text-main); }
+        body.dark-mode .btn-outline:hover { background: var(--accent-color); border-color: var(--accent-color); color: #fff !important; box-shadow: 0 10px 15px -3px rgba(249, 115, 22, 0.4); }
 
         /* MOBILE OVERLAY BACKGROUND */
         .drawer-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4); z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; backdrop-filter: blur(4px); }
@@ -176,16 +175,16 @@
         .mobile-link:hover { color: var(--accent-color); transform: scale(1.05); }
 
         /* FOOTER */
-        footer { background: var(--bg-secondary); border-top: 3px solid var(--text-main); padding-top: 80px; }
-        body.dark-mode footer { border-color: var(--accent-color); }
+        footer { background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding-top: 80px; }
+        body.dark-mode footer { border-color: var(--border-color); }
         footer h4 { color: var(--text-main); font-weight: 900; font-size: 1.2rem; margin-bottom: 24px; text-transform: uppercase; } 
         footer a, footer li, footer span { color: var(--text-muted); text-decoration: none; transition: all 0.3s; font-size: 1rem; font-weight: 500; }
         footer a:hover { color: var(--accent-color); }
-        .social-link-circle { width: 48px; height: 48px; border-radius: 12px; border: 2px solid var(--text-main); display: flex; align-items: center; justify-content: center; transition: all 0.3s; color: var(--text-main); background: var(--bg-card); box-shadow: 2px 2px 0px var(--text-main); }
-        .social-link-circle:hover { background: var(--accent-color); color: #FFFFFF; transform: translate(-2px, -2px); box-shadow: 4px 4px 0px var(--text-main); }
-        body.dark-mode .social-link-circle { border-color: var(--accent-color); box-shadow: 2px 2px 0px var(--accent-color); }
-        body.dark-mode .social-link-circle:hover { box-shadow: 4px 4px 0px var(--accent-color); }
-        .footer-bottom { border-top: 2px solid var(--border-color); padding: 32px 0; margin-top: 60px; }
+        .social-link-circle { width: 48px; height: 48px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; transition: all 0.3s; color: var(--text-main); background: var(--bg-card); box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .social-link-circle:hover { background: var(--accent-color); border-color: var(--accent-color); color: #FFFFFF; transform: translateY(-2px); box-shadow: 0 4px 6px rgba(249, 115, 22, 0.3); }
+        body.dark-mode .social-link-circle { border-color: var(--border-color); box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        body.dark-mode .social-link-circle:hover { box-shadow: 0 4px 6px rgba(249, 115, 22, 0.3); }
+        .footer-bottom { border-top: 1px solid var(--border-color); padding: 32px 0; margin-top: 60px; }
     </style>
 </head>
 <body>
@@ -193,7 +192,7 @@
     <nav class="navbar">
         <div class="w-full flex items-center justify-between">
             <div class="flex items-center flex-1">
-                <a href="index.html" class="text-2xl font-black tracking-tighter block" style="color: black !important; text-decoration: none;">
+                <a href="index.html" class="text-2xl font-black tracking-tighter block" style="color: var(--text-main) !important; text-decoration: none;">
                     SkatersCrib
                 </a>
             </div>
@@ -233,7 +232,7 @@
                 <button id="rtl-btn" class="rtl-btn-style" title="Toggle LTR/RTL">LTR</button>
             </div>
             <div class="xl:hidden flex items-center justify-end flex-1">
-                <button id="mobile-btn" class="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] border-2 border-[var(--text-main)] flex items-center justify-center text-[var(--text-main)] transition-all" style="box-shadow: 2px 2px 0px var(--text-main);">
+                <button id="mobile-btn" class="w-10 h-10 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)] flex items-center justify-center text-[var(--text-main)] transition-all shadow-sm hover:shadow-md">
                     <i class="fas fa-bars text-lg"></i>
                 </button>
             </div>
@@ -243,16 +242,16 @@
 
     <div class="fullscreen-menu" id="fullscreen-menu">
         <div class="w-full px-8 py-6 flex justify-between items-center shrink-0">
-            <a href="index.html" class="text-2xl font-black tracking-tighter block" style="color: black !important; text-decoration: none;">
+            <a href="index.html" class="text-2xl font-black tracking-tighter block" style="color: var(--text-main) !important; text-decoration: none;">
                 SkatersCrib
             </a>
-            <button id="close-menu" class="w-10 h-10 rounded-xl border-2 border-[var(--text-main)] flex items-center justify-center transition-all text-xl bg-[var(--bg-secondary)] text-[var(--text-main)]" style="box-shadow: 2px 2px 0px var(--text-main);">
+            <button id="close-menu" class="w-10 h-10 rounded-xl border border-[var(--border-color)] flex items-center justify-center transition-all text-xl bg-[var(--bg-secondary)] text-[var(--text-main)] shadow-sm hover:shadow-md">
                 <i class="fas fa-times"></i>
             </button>
         </div>
         <div class="flex flex-col items-center justify-start w-full overflow-y-auto flex-1 gap-2 pt-6 pb-8">
-            <a href="index.html" class="mobile-link" style="color: var(--accent-color);">Home Page 1</a>
-            <a href="home-2.html" class="mobile-link">Home Page 2</a>
+            <a href="index.html" class="mobile-link">Home Page 1</a>
+            <a href="home-2.html" class="mobile-link" style="color: var(--accent-color);">Home Page 2</a>
             <a href="about.html" class="mobile-link">About</a>
             <a href="services.html" class="mobile-link">Services</a>
             <a href="pricing.html" class="mobile-link">Pricing</a>
@@ -282,17 +281,17 @@
         </div>
     </div>
 
-    <section class="relative w-full min-h-[100dvh] lg:h-[100dvh] pt-36 lg:pt-28 pb-12 lg:pb-8 flex items-center bg-[var(--bg-color)] overflow-hidden border-b-[6px] border-[var(--text-main)]">
+    <section class="relative w-full min-h-[100dvh] lg:h-[100dvh] pt-36 lg:pt-28 pb-12 lg:pb-8 flex items-center bg-[var(--bg-color)] overflow-hidden border-b border-[var(--border-color)]">
         <div class="absolute top-1/4 left-0 w-[40%] h-[70%] bg-[var(--accent-color)] opacity-[0.03] rounded-r-full blur-3xl z-0 pointer-events-none hidden lg:block"></div>
         
         <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-12 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center relative z-10 mt-6 lg:mt-0">
             <div class="flex flex-col items-start text-left justify-center lg:h-full">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--bg-card)] border-2 border-[var(--text-main)] text-[var(--text-main)] text-xs font-black uppercase tracking-widest mb-8 shadow-[4px_4px_0px_var(--accent-color)]">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-main)] text-xs font-black uppercase tracking-widest mb-8 shadow-sm">
                     <i class="fas fa-tools text-[var(--accent-color)]"></i> Pro-Level Tuning
                 </div>
                 <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-black leading-[1.05] mb-6 text-[var(--text-main)] tracking-tighter">
                     ELEVATE YOUR <br class="hidden lg:block">
-                    <span style="color: var(--accent-color); text-shadow: 4px 4px 0px var(--text-main);">DAILY GRIND</span>.
+                    <span style="color: var(--accent-color); text-shadow: 0 4px 6px rgba(0,0,0,0.1);">DAILY GRIND</span>.
                 </h1>
                 <p class="text-[var(--text-muted)] text-lg sm:text-xl md:text-2xl leading-relaxed max-w-xl font-semibold mb-10">
                     Experience the difference of a precision-tuned setup. Whether you need a fresh deck, upgraded bearings, or a complete overhaul, our workshop has you covered.
@@ -309,7 +308,7 @@
             </div>
             
             <div class="relative w-full h-[40vh] sm:h-[50vh] lg:h-[75vh] flex items-center justify-center mt-6 lg:mt-0">
-                <div class="relative w-full h-full max-h-[700px] rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden border-4 border-[var(--text-main)] bg-[var(--bg-secondary)] flex items-center justify-center" style="box-shadow: 12px 12px 0px var(--accent-color);">
+                <div class="relative w-full h-full max-h-[700px] rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden border-none shadow-2xl bg-[var(--bg-secondary)] flex items-center justify-center">
                     <img src="images/pexels-jess-vide-6390449.jpg" alt="Pro Skate Equipment" class="w-full h-full object-cover animate-zoom" />
                     <div class="absolute inset-0 bg-gradient-to-tr from-[#1E293B]/30 to-transparent pointer-events-none"></div>
                 </div>
@@ -317,38 +316,38 @@
         </div>
     </section>
 
-    <section class="w-full py-28 bg-[var(--bg-secondary)] border-b-[6px] border-[var(--text-main)]">
+    <section class="w-full py-28 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
         <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
             <div class="flex flex-col items-center text-center mb-16">
                 <h2 class="text-4xl md:text-6xl font-black text-[var(--text-main)] uppercase tracking-tight mb-4">The <span class="text-[var(--accent-color)]">Arsenal</span></h2>
                 <p class="text-lg text-[var(--text-muted)] font-bold max-w-2xl">Premium components built to survive the harshest concrete and the biggest drops.</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <a href="#" class="group block relative bg-[var(--bg-card)] rounded-2xl neo-border neo-shadow p-6 flex flex-col items-center overflow-hidden h-[380px]">
-                    <div class="absolute top-4 right-4 bg-[var(--accent-color)] text-white text-xs font-black px-3 py-1 rounded-full neo-border rotate-3 z-10">NEW</div>
-                    <div class="w-full h-48 mb-6 overflow-hidden rounded-xl neo-border">
+                <a href="#" class="group block relative bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-md hover:shadow-xl p-6 flex flex-col items-center overflow-hidden h-[380px] transition-all duration-300 hover:-translate-y-2">
+                    <div class="absolute top-4 right-4 bg-[var(--accent-color)] text-white text-xs font-black px-3 py-1 rounded-full shadow-sm rotate-3 z-10">NEW</div>
+                    <div class="w-full h-48 mb-6 overflow-hidden rounded-xl bg-gray-100">
                         <img src="images/pexels-maksgelatin-4663820.jpg" alt="Decks" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                     </div>
                     <h3 class="text-2xl font-black text-[var(--text-main)] uppercase mb-2">Custom Decks</h3>
                     <p class="text-[var(--text-muted)] text-sm font-semibold text-center mt-auto">7-Ply Maple & Bamboo</p>
                 </a>
-                <a href="#" class="group block relative bg-[var(--bg-card)] rounded-2xl neo-border neo-shadow p-6 flex flex-col items-center overflow-hidden h-[380px]">
-                    <div class="w-full h-48 mb-6 overflow-hidden rounded-xl neo-border">
+                <a href="#" class="group block relative bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-md hover:shadow-xl p-6 flex flex-col items-center overflow-hidden h-[380px] transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-full h-48 mb-6 overflow-hidden rounded-xl bg-gray-100">
                         <img src="images/pexels-koprivakart-3371216.jpg" alt="Trucks" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                     </div>
                     <h3 class="text-2xl font-black text-[var(--text-main)] uppercase mb-2">Pro Trucks</h3>
                     <p class="text-[var(--text-muted)] text-sm font-semibold text-center mt-auto">Hollow Kingpins & Titanium</p>
                 </a>
-                <a href="#" class="group block relative bg-[var(--bg-card)] rounded-2xl neo-border neo-shadow p-6 flex flex-col items-center overflow-hidden h-[380px]">
-                    <div class="absolute top-4 right-4 bg-black text-white text-xs font-black px-3 py-1 rounded-full neo-border -rotate-3 z-10">HOT</div>
-                    <div class="w-full h-48 mb-6 overflow-hidden rounded-xl neo-border">
+                <a href="#" class="group block relative bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-md hover:shadow-xl p-6 flex flex-col items-center overflow-hidden h-[380px] transition-all duration-300 hover:-translate-y-2">
+                    <div class="absolute top-4 right-4 bg-black text-white text-xs font-black px-3 py-1 rounded-full shadow-sm -rotate-3 z-10">HOT</div>
+                    <div class="w-full h-48 mb-6 overflow-hidden rounded-xl bg-gray-100">
                         <img src="images/pexels-cottonbro-10118266.jpg" alt="Wheels" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                     </div>
                     <h3 class="text-2xl font-black text-[var(--text-main)] uppercase mb-2">Street Wheels</h3>
                     <p class="text-[var(--text-muted)] text-sm font-semibold text-center mt-auto">99a-101a Hard Urethane</p>
                 </a>
-                <a href="#" class="group block relative bg-[var(--bg-card)] rounded-2xl neo-border neo-shadow p-6 flex flex-col items-center overflow-hidden h-[380px]">
-                    <div class="w-full h-48 mb-6 overflow-hidden rounded-xl neo-border">
+                <a href="#" class="group block relative bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-md hover:shadow-xl p-6 flex flex-col items-center overflow-hidden h-[380px] transition-all duration-300 hover:-translate-y-2">
+                    <div class="w-full h-48 mb-6 overflow-hidden rounded-xl bg-gray-100">
                         <img src="images/pexels-introspectivedsgn-5880093.jpg" alt="Bearings" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 filter grayscale group-hover:grayscale-0">
                     </div>
                     <h3 class="text-2xl font-black text-[var(--text-main)] uppercase mb-2">Ceramic Bearings</h3>
@@ -358,14 +357,14 @@
         </div>
     </section>
 
-    <section class="w-full py-32 relative bg-black flex items-center justify-center border-b-[6px] border-[var(--accent-color)] overflow-hidden min-h-[70vh]">
+    <section class="w-full py-32 relative bg-black flex items-center justify-center border-b border-[var(--accent-color)] overflow-hidden min-h-[70vh]">
         <div class="absolute inset-0 z-0">
             <img src="images/pexels-matej-bizjak-2148520448-30155533.jpg" alt="Skate Video Promo" class="w-full h-full object-cover opacity-40 mix-blend-overlay">
             <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/80"></div>
         </div>
         
         <div class="relative z-10 flex flex-col items-center text-center px-6 max-w-4xl">
-            <button class="w-28 h-28 md:w-36 md:h-36 bg-[var(--accent-color)] rounded-full flex items-center justify-center neo-border shadow-[8px_8px_0px_white] hover:scale-110 hover:shadow-[12px_12px_0px_white] transition-all duration-300 mb-10 group">
+            <button class="w-28 h-28 md:w-36 md:h-36 bg-[var(--accent-color)] rounded-full flex items-center justify-center shadow-lg ring-1 ring-white/20 hover:scale-110 hover:shadow-2xl transition-all duration-300 mb-10 group">
                 <i class="fas fa-play text-4xl md:text-5xl text-white ml-2 group-hover:text-black transition-colors"></i>
             </button>
             
@@ -378,38 +377,38 @@
         </div>
     </section>
 
-    <section class="w-full py-32 bg-[var(--bg-color)] border-b-[6px] border-[var(--text-main)] overflow-hidden relative">
+    <section class="w-full py-32 bg-[var(--bg-color)] border-b border-[var(--border-color)] overflow-hidden relative">
         <div class="max-w-[1440px] mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div class="relative w-full h-[500px] lg:h-[650px] order-2 lg:order-1 mt-12 lg:mt-0">
-                <div class="absolute -top-6 -left-6 w-full h-full bg-[var(--accent-color)] rounded-3xl neo-border"></div>
-                <div class="absolute top-6 right-6 w-32 h-32 bg-[var(--bg-secondary)] rounded-full neo-border z-20 flex items-center justify-center" style="box-shadow: 6px 6px 0px var(--text-main);">
+                <div class="absolute -top-6 -left-6 w-full h-full bg-[var(--accent-color)] rounded-3xl opacity-20 hidden md:block"></div>
+                <div class="absolute top-6 right-6 w-32 h-32 bg-[var(--bg-secondary)] rounded-full shadow-lg border border-[var(--border-color)] z-20 flex items-center justify-center">
                     <i class="fas fa-hammer text-4xl text-[var(--text-main)]"></i>
                 </div>
-                <div class="relative w-full h-full rounded-3xl overflow-hidden neo-border bg-[var(--bg-card)] z-10" style="box-shadow: 12px 12px 0px var(--text-main);">
+                <div class="relative w-full h-full rounded-3xl overflow-hidden border-none shadow-2xl bg-[var(--bg-card)] z-10">
                     <img src="images/pexels-yaroslav-shuraev-4889133.jpg" alt="Skateboard Workshop Lab" class="w-full h-full object-cover">
                 </div>
             </div>
             
             <div class="flex flex-col items-start order-1 lg:order-2">
-                <div class="bg-[var(--text-main)] text-white px-4 py-2 text-xs font-black uppercase tracking-widest rounded-md mb-6 neo-border">The Laboratory</div>
+                <div class="bg-[var(--text-main)] text-[var(--bg-card)] px-4 py-2 text-xs font-black uppercase tracking-widest rounded-md mb-6 shadow-sm">The Laboratory</div>
                 <h2 class="text-4xl sm:text-5xl md:text-6xl font-black text-[var(--text-main)] uppercase tracking-tight leading-[1.1] mb-6">
                     Where wood <br>meets <span class="text-[var(--accent-color)]">Grit.</span>
                 </h2>
-                <div class="w-20 h-2 bg-[var(--accent-color)] mb-8"></div>
+                <div class="w-20 h-1 rounded-full bg-[var(--accent-color)] mb-8"></div>
                 <p class="text-[var(--text-muted)] text-lg font-medium leading-relaxed mb-6">
                     Our workshop isn't just a retail store; it's a fully operational laboratory for shredders. We stock raw veneers, grip tape rolls, and hundreds of hardware configurations. 
                 </p>
                 <p class="text-[var(--text-muted)] text-lg font-medium leading-relaxed mb-10">
                     Book a session with our master builders. We'll measure your stance, analyze your riding style, and construct a custom setup that acts as an extension of your own body.
                 </p>
-                <a href="user.html" class="btn btn-solid !py-5 !px-10 text-base shadow-[6px_6px_0px_var(--text-main)]">
+                <a href="user.html" class="btn btn-solid !py-5 !px-10 text-base shadow-lg">
                     Enter The Lab <i class="fas fa-door-open ml-3"></i>
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="w-full py-32 bg-[var(--bg-secondary)] border-b-[6px] border-[var(--text-main)]">
+    <section class="w-full py-32 bg-[var(--bg-secondary)] border-b border-[var(--border-color)]">
         <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
             <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
                 <div>
@@ -419,8 +418,8 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-8 pt-10">
-                <div class="relative bg-[var(--bg-card)] rounded-2xl neo-border neo-shadow p-8 mt-12 md:mt-0 pt-20">
-                    <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 w-32 h-32 rounded-xl neo-border overflow-hidden bg-black shadow-[6px_6px_0px_var(--accent-color)] z-10">
+                <div class="relative bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-lg p-8 mt-12 md:mt-0 pt-20 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 w-32 h-32 rounded-xl border-4 border-[var(--bg-card)] overflow-hidden bg-black shadow-md z-10">
                         <img src="images/pexels-m1ddl3-m7n-288920932-13182833.jpg" alt="Rider 1" class="w-full h-full object-cover">
                     </div>
                     <div class="text-center">
@@ -428,25 +427,25 @@
                         <p class="text-[var(--accent-color)] font-bold text-sm uppercase tracking-widest mb-4">Vert & Transition</p>
                         <p class="text-[var(--text-muted)] font-medium leading-relaxed mb-6">Known for massive airs and technically flawless bowl runs. Rides a 8.5" custom shape.</p>
                         <div class="flex justify-center space-x-3">
-                            <a href="#" class="w-10 h-10 rounded-full neo-border flex items-center justify-center text-[var(--text-main)] hover:bg-[var(--accent-color)] hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-[var(--border-color)] flex items-center justify-center text-[var(--text-main)] hover:bg-[var(--accent-color)] hover:text-white hover:border-transparent transition-colors shadow-sm"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="relative bg-[var(--text-main)] text-white rounded-2xl neo-border p-8 mt-12 md:-mt-10 pt-20 z-10" style="box-shadow: 12px 12px 0px var(--accent-color); border-color: var(--accent-color);">
-                    <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 w-32 h-32 rounded-xl border-4 border-[var(--accent-color)] overflow-hidden bg-white shadow-[6px_6px_0px_white] z-10">
+                <div class="relative bg-[var(--text-main)] text-[var(--bg-card)] rounded-2xl border-none ring-1 ring-[var(--accent-color)] shadow-2xl p-8 mt-12 md:-mt-10 pt-20 z-10 transition-all duration-300 hover:-translate-y-2">
+                    <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 w-32 h-32 rounded-xl border-4 border-[var(--text-main)] overflow-hidden bg-[var(--bg-card)] shadow-md z-10">
                         <img src="images/pexels-carlos-baeza-546142-2777671.jpg" alt="Rider 2" class="w-full h-full object-cover filter contrast-125">
                     </div>
                     <div class="text-center">
-                        <h3 class="text-2xl font-black text-white uppercase">Mia Santos</h3>
+                        <h3 class="text-2xl font-black text-[var(--bg-card)] uppercase">Mia Santos</h3>
                         <p class="text-[var(--accent-color)] font-bold text-sm uppercase tracking-widest mb-4">Street Specialist</p>
-                        <p class="text-gray-300 font-medium leading-relaxed mb-6">Tech genius on ledges and handrails. Refuses to skate anything but our titanium trucks.</p>
+                        <p class="font-medium leading-relaxed mb-6 opacity-90" style="color: var(--bg-card);">Tech genius on ledges and handrails. Refuses to skate anything but our titanium trucks.</p>
                         <div class="flex justify-center space-x-3">
-                            <a href="#" class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full border flex items-center justify-center transition-colors shadow-sm hover:bg-[var(--bg-card)] hover:text-[var(--text-main)]" style="border-color: var(--bg-card); color: var(--bg-card);"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="relative bg-[var(--bg-card)] rounded-2xl neo-border neo-shadow p-8 mt-12 md:mt-0 pt-20">
-                    <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 w-32 h-32 rounded-xl neo-border overflow-hidden bg-black shadow-[6px_6px_0px_var(--accent-color)] z-10">
+                <div class="relative bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] shadow-lg p-8 mt-12 md:mt-0 pt-20 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                    <div class="absolute -top-16 left-1/2 transform -translate-x-1/2 w-32 h-32 rounded-xl border-4 border-[var(--bg-card)] overflow-hidden bg-black shadow-md z-10">
                         <img src="images/pexels-cafer-caner-savli-1725684886-32930978.jpg" alt="Rider 3" class="w-full h-full object-cover">
                     </div>
                     <div class="text-center">
@@ -454,7 +453,7 @@
                         <p class="text-[var(--accent-color)] font-bold text-sm uppercase tracking-widest mb-4">Downhill Speed</p>
                         <p class="text-[var(--text-muted)] font-medium leading-relaxed mb-6">Breaks speed limits on mountain passes. Uses our custom 42" drop-through setups exclusively.</p>
                         <div class="flex justify-center space-x-3">
-                            <a href="#" class="w-10 h-10 rounded-full neo-border flex items-center justify-center text-[var(--text-main)] hover:bg-[var(--accent-color)] hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-[var(--border-color)] flex items-center justify-center text-[var(--text-main)] hover:bg-[var(--accent-color)] hover:text-white hover:border-transparent transition-colors shadow-sm"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -462,29 +461,29 @@
         </div>
     </section>
 
-    <section class="w-full py-24 bg-[var(--accent-color)] text-black border-b-[6px] border-[var(--text-main)]">
+    <section class="w-full py-24 bg-[var(--accent-color)] text-white border-b border-[var(--border-color)]">
         <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="flex flex-col items-center text-center p-8">
-                    <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center border-4 border-black mb-6 shadow-[4px_4px_0px_black]">
-                        <i class="fas fa-truck-fast text-4xl text-black"></i>
+                    <div class="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mb-6 shadow-lg ring-1 ring-white/30 backdrop-blur-sm">
+                        <i class="fas fa-truck-fast text-4xl text-white"></i>
                     </div>
                     <h3 class="text-2xl font-black uppercase tracking-tight mb-3">Free Shipping</h3>
-                    <p class="font-bold text-black/80 text-lg">On all custom complete boards and orders over $150. Drops right at your door.</p>
+                    <p class="font-medium text-white/90 text-lg">On all custom complete boards and orders over $150. Drops right at your door.</p>
                 </div>
                 <div class="flex flex-col items-center text-center p-8">
-                    <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center border-4 border-black mb-6 shadow-[4px_4px_0px_black]">
-                        <i class="fas fa-shield-halved text-4xl text-black"></i>
+                    <div class="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mb-6 shadow-lg ring-1 ring-white/30 backdrop-blur-sm">
+                        <i class="fas fa-shield-halved text-4xl text-white"></i>
                     </div>
                     <h3 class="text-2xl font-black uppercase tracking-tight mb-3">Snap Warranty</h3>
-                    <p class="font-bold text-black/80 text-lg">Break a deck in the first 30 days due to a defect? We replace it instantly. No questions.</p>
+                    <p class="font-medium text-white/90 text-lg">Break a deck in the first 30 days due to a defect? We replace it instantly. No questions.</p>
                 </div>
                 <div class="flex flex-col items-center text-center p-8">
-                    <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center border-4 border-black mb-6 shadow-[4px_4px_0px_black]">
-                        <i class="fas fa-hand-holding-hand text-4xl text-black"></i>
+                    <div class="w-24 h-24 bg-white/10 rounded-full flex items-center justify-center mb-6 shadow-lg ring-1 ring-white/30 backdrop-blur-sm">
+                        <i class="fas fa-hand-holding-hand text-4xl text-white"></i>
                     </div>
                     <h3 class="text-2xl font-black uppercase tracking-tight mb-3">Local Pickup</h3>
-                    <p class="font-bold text-black/80 text-lg">Order online, pick up at the garage in 2 hours. We'll even grip it for you while you wait.</p>
+                    <p class="font-medium text-white/90 text-lg">Order online, pick up at the garage in 2 hours. We'll even grip it for you while you wait.</p>
                 </div>
             </div>
         </div>
@@ -494,9 +493,9 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-10 pt-4">
                 <div class="lg:col-span-4">
-                    <a href="index.html" class="text-2xl font-black tracking-tighter block mb-6" style="color: black !important; text-decoration: none;">
-    SkatersCrib
-</a>
+                    <a href="index.html" class="text-2xl font-black tracking-tighter block mb-6" style="color: var(--text-main) !important; text-decoration: none;">
+                        SkatersCrib
+                    </a>
                     <p class="opacity-80 leading-relaxed text-base font-medium mb-8 max-w-sm" style="color: var(--text-muted);">
                         Crafting premium, custom-built skateboards and longboards for riders of all levels. High-quality materials, precision engineering. Your ride, your rules.
                     </p>
