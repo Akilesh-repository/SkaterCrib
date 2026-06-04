@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkatersCrib - Skateboard & Longboard Workshop</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontWeight: {
+          semibold: '500',
+          bold: '500',
+          extrabold: '500',
+          black: '500'
+        }
+      }
+    }
+  }
+</script>
     <link rel="icon" type="image/jpeg" href="images\istockphoto-1081181628-612x612.jpg">
     <link rel="icon" type="image/png" href="images\istockphoto-1081181628-612x612.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -283,28 +297,28 @@
 
     <section class="relative w-full min-h-[100dvh] pt-36 lg:pt-28 pb-12 lg:pb-8 flex items-center justify-center overflow-hidden border-b border-[var(--border-color)]">
         <div class="absolute inset-0 z-0 bg-black">
-            <img src="images/pexels-cottonbro-5029062.jpg" alt="Custom Skateboard Build" class="w-full h-full object-cover animate-zoom opacity-60" />
-            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-[var(--bg-color)]"></div>
+            <img src="images\pexels-artempodrez-4816753.jpg" alt="Custom Skateboard Build Inspiration" class="w-full h-full object-cover animate-zoom opacity-50" />
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-[var(--bg-color)]"></div>
         </div>
 
         <div class="max-w-[1100px] mx-auto px-4 sm:px-6 w-full flex flex-col items-center justify-center text-center relative z-10">
             <div class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[var(--accent-color)] border border-transparent text-white text-xs font-black uppercase tracking-widest mb-8 neo-shadow">
-                <i class="fas fa-fire-alt"></i> 100% Custom Built
+                <i class="fas fa-eye"></i> Design Your Vibe
             </div>
             <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1] mb-8 text-white tracking-tighter drop-shadow-2xl">
-                DESIGN YOUR <br class="hidden sm:block">
-                <span style="color: var(--accent-color); text-shadow: 0 4px 6px rgba(0,0,0,0.5);">PERFECT RIDE</span>.
+                DISCOVER YOUR <br class="hidden sm:block">
+                <span style="color: var(--accent-color); text-shadow: 0 4px 6px rgba(0,0,0,0.5);">AESTHETIC</span>.
             </h1>
             <p class="text-gray-200 text-lg sm:text-xl md:text-2xl leading-relaxed max-w-3xl font-semibold mb-12 drop-shadow-lg">
-                Stop riding off-the-rack. Build the ultimate setup tailored to your exact style—whether you're hitting the streets, carving bowls, or bombing hills.
+                Explore our gallery of custom builds. Get inspired by unique deck graphics, precision hardware, and tailored setups before stepping into the workshop to craft your own.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-6 w-full sm:w-auto">
-                <a href="services.html" class="btn btn-solid group !py-4 sm:!py-5 !px-10 text-sm sm:text-base">
-                    <span>Start Building</span>
-                    <i class="fas fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+                <a href="#inspiration-gallery" class="btn btn-solid group !py-4 sm:!py-5 !px-10 text-sm sm:text-base">
+                    <span>View Gallery</span>
+                    <i class="fas fa-arrow-down ml-2 transition-transform group-hover:translate-y-1"></i>
                 </a>
-                <a href="user.html" class="btn btn-outline !py-4 sm:!py-5 !px-10 text-sm sm:text-base bg-white !text-black border !border-gray-200">
-                    <i class="fas fa-wrench mr-2 text-[var(--accent-color)]"></i> Book Workshop
+                <a href="services.html" class="btn btn-outline !py-4 sm:!py-5 !px-10 text-sm sm:text-base bg-white !text-black border !border-gray-200">
+                     Book Workshop
                 </a>
             </div>
         </div>
@@ -352,34 +366,83 @@
         </div>
     </section>
 
-    <section class="w-full py-32 bg-[var(--bg-secondary)] border-y border-[var(--border-color)]">
+    <section id="inspiration-gallery" class="w-full py-32 bg-[var(--bg-secondary)] border-y border-[var(--border-color)]">
         <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
-            <div class="flex flex-col items-center justify-center text-center mb-16 gap-8">
+            
+            <div class="flex flex-col items-center justify-center text-center mb-16 gap-6">
                 <div class="max-w-3xl">
-                    <div class="inline-block bg-[var(--text-main)] text-[var(--bg-card)] font-medium px-4 py-2 text-xs uppercase tracking-widest mb-4 rounded-md shadow-sm">Featured Builds</div>
-                    <h2 class="text-4xl md:text-6xl font-black text-[var(--text-main)] uppercase tracking-tight">Recent <br><span class="text-[var(--accent-color)]">Masterpieces</span></h2>
+                    <div class="inline-block bg-[var(--text-main)] text-[var(--bg-card)] font-medium px-4 py-2 text-xs uppercase tracking-widest mb-4 rounded-md shadow-sm">Design Gallery</div>
+                    <h2 class="text-4xl md:text-6xl font-black text-[var(--text-main)] uppercase tracking-tight">Rider <br><span class="text-[var(--accent-color)]">Inspiration</span></h2>
+                    <p class="mt-6 text-lg text-[var(--text-muted)] font-medium leading-relaxed">
+                        Browse our latest custom longboard and skateboard builds. From downhill cruisers to technical street setups, find the creative spark for your next deck.
+                    </p>
                 </div>
-                <a href="#" class="btn btn-outline !py-4 !px-8 shrink-0">View All Builds</a>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                <div class="group relative w-full h-[500px] bg-[var(--bg-card)] neo-border neo-shadow rounded-3xl overflow-hidden cursor-pointer">
-                    <img src="images/pexels-yaroslav-shuraev-4889060.jpg" alt="Street Setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-10">
-                        <span class="text-[var(--accent-color)] font-black uppercase tracking-widest text-sm mb-2">Park & Street</span>
-                        <h3 class="text-3xl font-black text-white mb-3">The Asphalt Ripper</h3>
-                        <p class="text-gray-300 font-medium max-w-md line-clamp-2">8.25" custom popsicle deck with hollow titanium trucks and 99a street wheels. Built for intense flip tricks and rail sliding.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[250px] md:auto-rows-[300px]">
+                
+                <div class="group relative bg-[var(--bg-card)] neo-border rounded-3xl overflow-hidden cursor-pointer md:col-span-2 md:row-span-2 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <img src="images\pexels-budgeron-bach-5157218.jpg" alt="Vintage Longboard Cruiser" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-[var(--accent-color)] font-black uppercase tracking-widest text-xs mb-2">Longboard Cruiser</span>
+                        <h3 class="text-3xl font-black text-white">The Sunset Carver</h3>
                     </div>
                 </div>
-                <div class="group relative w-full h-[500px] bg-[var(--bg-card)] neo-border neo-shadow rounded-3xl overflow-hidden cursor-pointer">
-                    <img src="images/pexels-yaroslav-shuraev-4889133.jpg" alt="Longboard Setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-10">
-                        <span class="text-[var(--accent-color)] font-black uppercase tracking-widest text-sm mb-2">Downhill Carver</span>
-                        <h3 class="text-3xl font-black text-white mb-3">Mountain Bomb</h3>
-                        <p class="text-gray-300 font-medium max-w-md line-clamp-2">40" drop-through longboard featuring reverse kingpin trucks and 75mm 78a soft wheels. Unmatched stability at high speeds.</p>
+
+                <div class="group relative bg-[var(--bg-card)] neo-border rounded-3xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+                    <img src="images\pexels-gusli-5757526.jpg" alt="Skateboard Detail" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-[var(--accent-color)] font-black uppercase tracking-widest text-[10px] mb-1">Deck Art</span>
+                        <h3 class="text-xl font-black text-white">Classic Popsicle</h3>
                     </div>
                 </div>
+
+                <div class="group relative bg-[var(--bg-card)] neo-border rounded-3xl overflow-hidden cursor-pointer md:row-span-2 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <img src="images\pexels-freestockpro-12932902.jpg" alt="Skateboard Deck Design" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-[var(--accent-color)] font-black uppercase tracking-widest text-[10px] mb-1">Street Build</span>
+                        <h3 class="text-xl font-black text-white">Urban Canvas</h3>
+                    </div>
+                </div>
+
+                <div class="group relative bg-[var(--bg-card)] neo-border rounded-3xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+                    <img src="images\pexels-rdne-5898690.jpg" alt="Custom Freeride Build" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-[var(--accent-color)] font-black uppercase tracking-widest text-[10px] mb-1">Downhill</span>
+                        <h3 class="text-xl font-black text-white">Freeride Bomber</h3>
+                    </div>
+                </div>
+
+                <div class="group relative bg-[var(--bg-card)] neo-border rounded-3xl overflow-hidden cursor-pointer md:col-span-2 shadow-sm hover:shadow-xl transition-all duration-300">
+                    <img src="images\pexels-ron-lach-9511321.jpg" alt="Custom Grip Tape Art" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-[var(--accent-color)] font-black uppercase tracking-widest text-[10px] mb-1">Custom Details</span>
+                        <h3 class="text-xl font-black text-white">Grip Tape Artistry</h3>
+                    </div>
+                </div>
+
+                <div class="group relative bg-[var(--bg-card)] neo-border rounded-3xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+                    <img src="images\pexels-shvets-production-8415136.jpg" alt="Hardware Setup" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-[var(--accent-color)] font-black uppercase tracking-widest text-[10px] mb-1">Tuning</span>
+                        <h3 class="text-xl font-black text-white">Precision Hardware</h3>
+                    </div>
+                </div>
+
+                <div class="group relative bg-[var(--bg-card)] neo-border rounded-3xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
+                    <img src="images\pexels-yaroslav-shuraev-4889060 (1).jpg" alt="Workshop Build" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span class="text-[var(--accent-color)] font-black uppercase tracking-widest text-[10px] mb-1">Bowl & Park</span>
+                        <h3 class="text-xl font-black text-white">Pro Park Setup</h3>
+                    </div>
+                </div>
+
             </div>
+
+            <div class="mt-16 flex justify-center">
+                <a href="gallery.html" class="btn btn-outline !py-4 !px-10">Load More Designs</a>
+            </div>
+
         </div>
     </section>
 
